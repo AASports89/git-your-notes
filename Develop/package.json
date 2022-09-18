@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A note taking application using Express.js & JSON files to store and retrieve a user's notes.",
   "main": "index.js",
+  "engines": {
+    "node": "16.17.0"
+  },
   "scripts": {
     "test": "npm test"
   },
