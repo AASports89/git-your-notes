@@ -1,13 +1,14 @@
 //ROUTE//
-    const express = require("express");
-//CUSTOM MIDDLEWARE//
-    const { custom } = require('../middleware/custom');
-    const notesRouter = require("./notes");
-    const app = express();
+    const path = require("path");
 
-    app.use("/notes", notesRouter);
-//INITIALIZE CUSTOM MIDDLEWARE//
-    app.use(custom);
-
-//EXPORT//
-    module.exports = app;
+//EXPORT ROUTER --> MODULE//
+    module.exports = (app) => {
+//HTML GET REQUESTS//
+    app.get("/notes", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/notes.html"));
+    });
+//GET INDEX.HTML//
+    app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/index.html"));
+    });
+    };

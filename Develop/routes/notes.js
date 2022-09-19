@@ -1,54 +1,92 @@
 //********************************************************** TAKE NOTES ********************************************************//
-	const notes = require("express").Router();
+//DEPENDENCIES --> PATH PACKAGE FOR HTML//
+	const fs = require("fs");
 	const uuid = require("../util/uuid");
-	const {
-	readAppend,
-	readFromFile,
-	writeToFile,
-	} = require("../util/futil");
+	const editNote = (updatedNotesArray) => {
+  	fs.writeFile("./db/db.json", JSON.stringify(updatedNotesArray), (err) => {
+    	if (err) throw err;
+  		});
+	};
+//ROUTING//
+	module.exports = (app) => {
+//GET REQUEST//
+  	app.get("/api/notes", (req, res) => {
+//READ JSON & RETURN ALL PRIOR FILES//
+    fs.readFile("./db/db.json", "utf8", (err, data) => {
+      if (err) throw err;
+//PASRE --> JSCRIPT STRING//
+      res.json(JSON.parse(data));
+    	});
+  	});
+//POST REQUEST//
+  	app.post("/api/notes", (req, res) => {
+//NEW NOTE --> JSON FILES//
+    const newNote = req.body;
+    fs.readFile("./db/db.json", "utf8", (err, data) => {
+      if (err) throw err;
+//PARSE JSON DATA//
+      const notesArr = JSON.parse(data);
+      newNote.id = uuid
+      notesArr.push(newNote);
 
-//ROUTE FOR ALL NOTES//
-	notes.get("/", (req, res) =>
-		readFromFile("./db/db.json").then((data) => res.json(JSON.parse(data)))
-	);
+      editNote(notesArr);
+      console.log(
+        `New Note Added! Title: ${JSON.stringify(
+          newNote.title
+        )}, Text: ${JSON.stringify(newNote.text)}, ID: ${newNote.id}`
+      );
 
-//POST SUBMIT NOTES//
-	notes.post("/", (req, res) => {
-		const { title, text } = req.body;
+      res.send(notesArr);
+    });
+  });
 
-		if (title && text) {
-		const newNotes = {
-			title,
-			text,
-			note_id: uuid(),
-		};
+  //DELETE NOTES//
+  	app.delete("/api/notes/:id", (req, res) => {
+    const deleteId = req.params.id;
+    fs.readFile("./db/db.json", "utf8", (err, data) => {
+      if (err) throw err;
+      let notesArr = JSON.parse(data);
+      // removes the note with the given id property
+      for (let i = 0; i < notesArr.length; i++) {
+        if (notesArr[i].id === deleteId) {
+          notesArr.splice(i, 1);
+        }
+      }
+      editNote(notesArr);
+      console.log(`Note Deleted! Note ID: ${deleteId}`);
+      res.send(notesArr);
+    });
+  });
 
-		readAndAppend(newNotes, "./db/db.json");
+//PUT NOTES//
+  	app.put("/api/notes/:id", (req, res) => {
+    const editId = req.params.id;
 
-		const response = {
-			status: "success",
-			body: newNotes,
-		};
+    fs.readFile("./db/db.json", "utf8", (err, data) => {
+      if (err) throw err;
 
-		res.json(response);
-		} else {
-		res.json("Error in posting notes");
-		}
-	});
+      let notesArr = JSON.parse(data);
 
-//DELETE NOTES ROUTE//
-	notes.delete("/:note_id", (req, res) => {
-		const noteId = req.params.note_id;
-		readFromFile("./db/db.json")
-			.then((data) => JSON.parse(data))
-			.then((json) => {
-			console.log(json);
-			const result = json.filter((note) => note.note_id !== noteId);
+      let selectedNote = notesArr.find((note) => note.id === editId);
 
-			writeToFile("./db/db.json", result);
+//CHECK//
+      if (selectedNote) {
+        let updatedNote = {
+          title: req.body.title,
+          text: req.body.text,
+          id: selectedNote.id,
+        };
+//FIND INDEX//
+        let targetIndex = notesArr.indexOf(selectedNote);
+//REPLACE//
+        notesArr.splice(targetIndex, 1, updatedNote);
 
-			res.json(`Item ${noteId} has been deleted :wastebasket:`);
-		});
-	});
-
-	module.exports = notes;
+        res.sendStatus(204);
+        editNote(notesArr);
+        res.json(notesArr);
+      } else {
+        res.sendStatus(404);
+      }
+    	});
+  		});
+	};
