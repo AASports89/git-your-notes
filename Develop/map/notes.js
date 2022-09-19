@@ -1,11 +1,11 @@
 //********************************************************** TAKE NOTES ********************************************************//
 	const notes = require("express").Router();
-	const uuid = require("./uuid");
+	const uuid = require("../util/uuid");
 	const {
 	readAppend,
 	readFromFile,
 	writeToFile,
-	} = require("./futil");
+	} = require("../util/futil");
 
 //ROUTE FOR ALL NOTES//
 	notes.get("/", (req, res) =>
