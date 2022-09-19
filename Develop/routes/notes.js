@@ -1,55 +1,96 @@
 //********************************************************** TAKE NOTES ********************************************************//
+
 //DEPENDENCIES --> PATH PACKAGE FOR HTML//
 	const fs = require("fs");
-	const notes = require("express").Router();
-	const uuid = require("../util/uuid");
+	const uuid = require("../utils/uuid.js");
 	const {
-		readAndAppend,
-		readFromFile,
-		writeToFile,
-		} = require("../util/fsUtil");
-		
-//GET NOTES//
-	notes.get("/", (req, res) =>
-		readFromFile("./db/db.json").then((data) => res.json(JSON.parse(data)))
-	);
-		
-//POST SUBMITTING NOTES//
-	notes.post("/", (req, res) => {
-		const { title, text } = req.body;
-			if (title && text) {
-				const newNotes = {
-					title,
-					text,
-					note_id: uuid(),
-		};
-		
-	readAndAppend(newNotes, "./db/db.json");
-		
-		const response = {
-			status: "success",
-			body: newNotes,
-			};
-		
-			res.json(response);
-		} else {
-			res.json("Error in posting notes");
-			}
-		});
-		
-//DELETE NOTES//
-	notes.delete("/:note_id", (req, res) => {
-		const noteId = req.params.note_id;
-		readFromFile("./db/db.json")
-			.then((data) => JSON.parse(data))
-			.then((json) => {
-				console.log(json);
-				const result = json.filter((note) => note.note_id !== noteId);
-		
-				writeToFile("./db/db.json", result);
-		
-				res.json(`Item ${noteId} has been deleted :wastebasket:`);
-				});
+		editNote,
+	} = require("../utils/fsUtil.js");
+
+//ROUTES//
+	module.exports = (app) => {
+
+//GET NOTE//
+	app.get("/api/notes", (req, res) => {
+   
+    fs.readFile("./db/db.json", "utf8", (err, data) => {
+    	if (err) throw err;
+      
+    	res.json(JSON.parse(data));
+    	});
+  	});
+
+//POST//
+	app.post("/api/notes", (req, res) => {
+    
+    	const newNote = req.body;
+    	fs.readFile("./db/db.json", "utf8", (err, data) => {
+    		if (err) throw err;
+      
+    	const notesArr = JSON.parse(data);
+    	newNote.id = uuid({ length: 10 });
+    	notesArr.push(newNote);
+
+    	editNote(notesArr);
+    	console.log(
+        `New Note Added! Title: ${JSON.stringify(
+    	newNote.title
+        )}, Text: ${JSON.stringify(newNote.text)}, ID: ${newNote.id} 🚀`
+    	);
+
+    	res.send(notesArr);
+    	});
+  	});
+
+//DELETE NOTE//
+	app.delete("/api/notes/:id", (req, res) => {
+    	const deleteId = req.params.id;
+    	fs.readFile("./db/db.json", "utf8", (err, data) => {
+    		if (err) throw err;
+      		let notesArr = JSON.parse(data);
+      
+      		for (let i = 0; i < notesArr.length; i++) {
+        	if (notesArr[i].id === deleteId) {
+          	notesArr.splice(i, 1);
+        }
+    }
+    editNote(notesArr);
+    	console.log(`Note Deleted! Note ID: ${deleteId} 🚀`);
+    	res.send(notesArr);
+    	});
 	});
-		
-	module.exports = notes;
+
+//PUT NOTE//
+	app.put("/api/notes/:id", (req, res) => {
+    	const editId = req.params.id;
+
+    	fs.readFile("./db/db.json", "utf8", (err, data) => {
+    		if (err) throw err;
+
+    	let notesArr = JSON.parse(data);
+
+    	let selectedNote = notesArr.find((note) => note.id === editId);
+
+//CHECK//
+    if (selectedNote) {
+    	let updatedNote = {
+        title: req.body.title,
+        text: req.body.text, 
+        id: selectedNote.id,
+        };
+
+//LOCATE INDEX//
+    let targetIndex = notesArr.indexOf(selectedNote);
+
+//REPLACE W/ UPDATED NOTE//
+    notesArr.splice(targetIndex, 1, updatedNote);
+
+    	res.sendStatus(204);
+    	editNote(notesArr);
+    	res.json(notesArr);
+    		} else {
+    	res.sendStatus(404);
+    		}
+    	});
+  		});
+	};

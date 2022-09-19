@@ -1,11 +1,1 @@
-[
-    {
-        "title": "Test Title",
-        "text": "Test text"
-    },
-    {
-        "title": "Today",
-        "text": "script.js",
-        "note_id": "8f10"
-    }
-]
+[{"title":"Test Title","text":"Test text"}]

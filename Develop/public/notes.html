@@ -11,22 +11,23 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
 
-  <body>
-    <nav class="navbar navbar-dark bg-dark">
-      <a class="navbar-brand" href="/">Git Your Notes</a>
+  <body style="background-image: linear-gradient(rgba(106, 106, 110, 0.974) 0%, rgb(225, 233, 242) 100%)">
+    <nav class="navbar navbar-light bg-primary">
+      <a style="font-weight: bold; color: whitesmoke; font-size: 200%" class="navbar-brand" href="/">Git Your Notes</a>
+        <img src="./images/th.jpg" style="border-radius: 0.25em" width="50" height="50" alt="" loading="lazy">
       <div class="icons">
-        <i class="fas fa-save text-light save-note"></i>
-        <i class="fas fa-plus text-light new-note"></i>
+        <i id="save" style="color:whitesmoke" class="fa-regular fa-pen-to-square"></i>
+        <i id="new" style="color:whitesmoke" class="fa-solid fa-plus"></i>
       </div>
     </nav>
-    <div class="container-fluid">
+    <div class="container-fluid" style="background-image: linear-gradient(rgba(106, 106, 110, 0.974) 0%, rgb(225, 233, 242) 100%)">
       <div class="row">
         <div class="col-4 list-container">
-          <div class="card">
+          <div style="background-image: linear-gradient(rgba(3, 13, 198, 0.974) 0%, rgb(126, 184, 242) 100%)" class="card">
             <ul class="list-group"></ul>
           </div>
         </div>
-        <div class="col-8">
+        <div style="border-bottom: solid 1px black" class="col-8">
           <input
             class="note-title"
             placeholder="Note Title"

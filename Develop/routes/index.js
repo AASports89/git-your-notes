@@ -1,8 +1,12 @@
 //ROUTE PARAMETERS//
-    const express = require("express");
-    const notesRouter = require("./notes");
-    const app = express();
+    const path = require("path");
 
-    app.use("/notes", notesRouter);
+    module.exports = (app) => {
+        app.get("/notes", (req, res) => {
+        res.sendFile(path.join(__dirname, "../public/notes.html"));
+        });
 
-    module.exports = app;
+        app.get("*", (req, res) => {
+        res.sendFile(path.join(__dirname, "../public/index.html"));
+        });
+    };

@@ -8,8 +8,8 @@
   if (window.location.pathname === '/notes') {
   noteTitle = document.querySelector('.note-title');
   noteText = document.querySelector('.note-textarea');
-  saveNoteBtn = document.querySelector('.save-note');
-  newNoteBtn = document.querySelector('.new-note');
+  saveNoteBtn = document.querySelector("#save");
+  newNoteBtn = document.querySelector("#new");
   noteList = document.querySelectorAll('.list-container .list-group');
   }
 
@@ -69,8 +69,8 @@
 
   const handleNoteSave = () => {
   const newNote = {
-    title: noteTitle.value,
-    text: noteText.value,
+    title: noteTitle.value.trim(),
+    text: noteText.value.trim(),
   };
   saveNote(newNote).then(() => {
     getAndRenderNotes();
@@ -141,8 +141,8 @@
     if (delBtn) {
       const delBtnEl = document.createElement('i');
       delBtnEl.classList.add(
-        'fas',
-        'fa-trash-alt',
+        'fa-solid',
+        'fa-trash-can-arrow-up',
         'float-right',
         'text-danger',
         'delete-note'
