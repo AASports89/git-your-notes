@@ -1,5 +1,9 @@
-//ROUTE//
+//ROUTE PARAMETERS//
     const path = require("path");
+    const express = require("express");
+    const notesRouter = require("./notes");
+    const app = express();
+    app.use("/notes", notesRouter);
 
 //EXPORT ROUTER --> MODULE//
     module.exports = (app) => {

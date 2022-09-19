@@ -40,13 +40,13 @@
     });
   });
 
-  //DELETE NOTES//
+//DELETE NOTES//
   	app.delete("/api/notes/:id", (req, res) => {
     const deleteId = req.params.id;
     fs.readFile("./db/db.json", "utf8", (err, data) => {
       if (err) throw err;
       let notesArr = JSON.parse(data);
-      // removes the note with the given id property
+//DELETES NOTE BASED ON GEN. ID//
       for (let i = 0; i < notesArr.length; i++) {
         if (notesArr[i].id === deleteId) {
           notesArr.splice(i, 1);
@@ -57,7 +57,6 @@
       res.send(notesArr);
     });
   });
-
 //PUT NOTES//
   	app.put("/api/notes/:id", (req, res) => {
     const editId = req.params.id;
@@ -68,7 +67,6 @@
       let notesArr = JSON.parse(data);
 
       let selectedNote = notesArr.find((note) => note.id === editId);
-
 //CHECK//
       if (selectedNote) {
         let updatedNote = {
@@ -79,14 +77,13 @@
 //FIND INDEX//
         let targetIndex = notesArr.indexOf(selectedNote);
 //REPLACE//
-        notesArr.splice(targetIndex, 1, updatedNote);
-
-        res.sendStatus(204);
-        editNote(notesArr);
-        res.json(notesArr);
-      } else {
-        res.sendStatus(404);
-      }
+    notesArr.splice(targetIndex, 1, updatedNote);
+    res.sendStatus(204);
+    editNote(notesArr);
+    res.json(notesArr);
+    	} else {
+    	res.sendStatus(404);
+    	}
     	});
   		});
 	};
