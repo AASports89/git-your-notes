@@ -1,18 +1,12 @@
 
-# Git Your Notes
+# **Git Your Notes** [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](#isc-license)
 ---
->[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](#isc-license)
+
   
 ## Overview
 ---
-  **'Git Your Notes'** A note taker application powered by ```Express.js``` and ```JSON``` files to store, retrieve and organize a user's notes.
+  **'Git Your Notes'** is a note taker application powered by ```Express.js``` and ```JSON``` files to store, retrieve and organize a user's notes. Additionally, ```http://localhost:3001/api/notes``` will display all storage activity linked to the ```JSON``` files.
 
-## Bonus
-```
-You haven’t learned how to handle DELETE requests, but this application offers that functionality on the front end. As a bonus, try to add the DELETE route to the application using the following guideline:
-
-* `DELETE /api/notes/:id` should receive a query parameter that contains the id of a note to delete. To delete a note, you'll need to read all notes from the `db.json` file, remove the note with the given `id` property, and then rewrite the notes to the `db.json` file.
-```
 
 ## Table of Contents
 ---
