@@ -1,12 +1,12 @@
 //CUSTOME MIDDLEWARE --> LOGS OUT TYPE & PATH --> EACH REQUEST TO SERVER//
     const custom = (req, res, next) => {
-        const fgCyan = '\x1b[36m';
+        const fgCyan = "\x1b[36m";
         switch (req.method) {
-        case 'GET': {
+        case "GET": {
         console.info(`📗 ${fgCyan}${req.method} request to ${req.path}`);
         break;
         }
-        case 'POST': {
+        case "POST": {
         console.info(`📘 ${fgCyan}${req.method} request to ${req.path}`);
         break;
         }

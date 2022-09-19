@@ -23,7 +23,7 @@
 			note_id: uuid(),
 		};
 
-		readAppend(newNotes, "./db/db.json");
+		readAndAppend(newNotes, "./db/db.json");
 
 		const response = {
 			status: "success",
