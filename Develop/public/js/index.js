@@ -139,12 +139,8 @@
     liEl.append(spanEl);
 
     if (delBtn) {
-      const delBtnEl = document.createElement('i');
+      const delBtnEl = document.querySelector('.fa-trash-can-arrow-up');
       delBtnEl.classList.add(
-        'fa-solid',
-        'fa-trash-can-arrow-up',
-        'float-right',
-        'text-danger',
         'delete-note'
       );
       delBtnEl.addEventListener('click', handleNoteDelete);
