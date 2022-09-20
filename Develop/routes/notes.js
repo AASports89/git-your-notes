@@ -1,9 +1,9 @@
 //********************************************************** TAKE NOTES ********************************************************//
 
-//DEPENDENCIES --> PATH PACKAGE FOR HTML//
+//DEPENDENCIES --> PATH FOR HTML//
 const fs = require("fs");
 const uuid = require("../utils/uuid");
-
+//EDIT NOTES//
 const editNote = (updatedNotesArray) => {
   fs.writeFile("./db/db.json", JSON.stringify(updatedNotesArray), (err) => {
     if (err) throw err;
@@ -32,17 +32,17 @@ module.exports = (app) => {
       const notesArr = JSON.parse(data);
       newNote.id = uuid({ length: 10 });
       notesArr.push(newNote);
-
+//ADD NOTE --> EXISTING LIST//
       editNote(notesArr);
-      console.log(
-        `New Note Added! Title: ${JSON.stringify(
-          newNote.title
-        )}, Text: ${JSON.stringify(newNote.text)}, ID: ${newNote.id} 🚀`
-      );
+        console.log(
+        `Sucess! New Note Added Title: ${JSON.stringify(newNote.title)}, 
+        Text: ${JSON.stringify(newNote.text)}, 
+        ID: ${newNote.id} 🚀`
+        );
 
-      res.send(notesArr);
-    });
-  });
+        res.send(notesArr);
+        });
+      });
 
 //DELETE REQUEST//
   app.delete("/api/notes/:id", (req, res) => {
@@ -50,14 +50,14 @@ module.exports = (app) => {
     fs.readFile("./db/db.json", "utf8", (err, data) => {
       if (err) throw err;
       let notesArr = JSON.parse(data);
-      
+//RANDOM GEN. ID CHECK//
       for (let i = 0; i < notesArr.length; i++) {
         if (notesArr[i].id === deleteId) {
           notesArr.splice(i, 1);
         }
       }
       editNote(notesArr);
-      console.log(`Note Deleted! Note ID: ${deleteId} 🚀`);
+      console.log(`Warning! Note Deleted. Note ID: ${deleteId} 🚀`);
       res.send(notesArr);
     });
   });
@@ -65,33 +65,26 @@ module.exports = (app) => {
 //PUT REQUEST//
   app.put("/api/notes/:id", (req, res) => {
     const editId = req.params.id;
-
-    fs.readFile("./db/db.json", "utf8", (err, data) => {
-      if (err) throw err;
-
-      let notesArr = JSON.parse(data);
-
-      let selectedNote = notesArr.find((note) => note.id === editId);
+      fs.readFile("./db/db.json", "utf8", (err, data) => {
+        if (err) throw err;
+          let notesArr = JSON.parse(data);
+              let selectedNote = notesArr.find((note) => note.id === editId);
 
 //CHECK NOTE//
-      if (selectedNote) {
-        let updatedNote = {
-          title: req.body.title,
-          text: req.body.text, 
-          id: selectedNote.id,
+  if (selectedNote) {
+    let updatedNote = {
+        title: req.body.title,
+        text: req.body.text, 
+        id: selectedNote.id,
         };
-       
         let targetIndex = notesArr.indexOf(selectedNote);
-
-       
-        notesArr.splice(targetIndex, 1, updatedNote);
-
-        res.sendStatus(204);
-        editNote(notesArr);
-        res.json(notesArr);
-      } else {
-        res.sendStatus(404);
-      }
-    });
-  });
-};
+          notesArr.splice(targetIndex, 1, updatedNote);
+            res.sendStatus(204);
+            editNote(notesArr);
+              res.json(notesArr);
+                } else {
+                res.sendStatus(404);
+                }
+              });
+          });
+  };
