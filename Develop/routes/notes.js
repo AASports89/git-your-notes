@@ -1,96 +1,97 @@
 //********************************************************** TAKE NOTES ********************************************************//
 
 //DEPENDENCIES --> PATH PACKAGE FOR HTML//
-	const fs = require("fs");
-	const uuid = require("../utils/uuid.js");
-	const {
-		editNote,
-	} = require("../utils/fsUtil.js");
+const fs = require("fs");
+const uuid = require("../utils/uuid");
 
-//ROUTES//
-	module.exports = (app) => {
+const editNote = (updatedNotesArray) => {
+  fs.writeFile("./db/db.json", JSON.stringify(updatedNotesArray), (err) => {
+    if (err) throw err;
+  });
+};
 
-//GET NOTE//
-	app.get("/api/notes", (req, res) => {
-   
+//******************************** ROUTING ********************************//
+module.exports = (app) => {
+//GET ROUTE//
+  app.get("/api/notes", (req, res) => {
+//READ DB.JSON FILES//
     fs.readFile("./db/db.json", "utf8", (err, data) => {
-    	if (err) throw err;
-      
-    	res.json(JSON.parse(data));
-    	});
-  	});
+      if (err) throw err;
+//PARSE JSON STRING --> JSCRIPT//
+      res.json(JSON.parse(data));
+    });
+  });
 
-//POST//
-	app.post("/api/notes", (req, res) => {
-    
-    	const newNote = req.body;
-    	fs.readFile("./db/db.json", "utf8", (err, data) => {
-    		if (err) throw err;
-      
-    	const notesArr = JSON.parse(data);
-    	newNote.id = uuid({ length: 10 });
-    	notesArr.push(newNote);
+//POST REQUEST//
+  app.post("/api/notes", (req, res) => {
+//NEW NOTE --> RETURNS//
+    const newNote = req.body;
+    fs.readFile("./db/db.json", "utf8", (err, data) => {
+      if (err) throw err;
+//PARSE JSON STRING --> JSCRIPT//
+      const notesArr = JSON.parse(data);
+      newNote.id = uuid({ length: 10 });
+      notesArr.push(newNote);
 
-    	editNote(notesArr);
-    	console.log(
+      editNote(notesArr);
+      console.log(
         `New Note Added! Title: ${JSON.stringify(
-    	newNote.title
+          newNote.title
         )}, Text: ${JSON.stringify(newNote.text)}, ID: ${newNote.id} 🚀`
-    	);
+      );
 
-    	res.send(notesArr);
-    	});
-  	});
+      res.send(notesArr);
+    });
+  });
 
-//DELETE NOTE//
-	app.delete("/api/notes/:id", (req, res) => {
-    	const deleteId = req.params.id;
-    	fs.readFile("./db/db.json", "utf8", (err, data) => {
-    		if (err) throw err;
-      		let notesArr = JSON.parse(data);
+//DELETE REQUEST//
+  app.delete("/api/notes/:id", (req, res) => {
+    const deleteId = req.params.id;
+    fs.readFile("./db/db.json", "utf8", (err, data) => {
+      if (err) throw err;
+      let notesArr = JSON.parse(data);
       
-      		for (let i = 0; i < notesArr.length; i++) {
-        	if (notesArr[i].id === deleteId) {
-          	notesArr.splice(i, 1);
+      for (let i = 0; i < notesArr.length; i++) {
+        if (notesArr[i].id === deleteId) {
+          notesArr.splice(i, 1);
         }
-    }
-    editNote(notesArr);
-    	console.log(`Note Deleted! Note ID: ${deleteId} 🚀`);
-    	res.send(notesArr);
-    	});
-	});
+      }
+      editNote(notesArr);
+      console.log(`Note Deleted! Note ID: ${deleteId} 🚀`);
+      res.send(notesArr);
+    });
+  });
 
-//PUT NOTE//
-	app.put("/api/notes/:id", (req, res) => {
-    	const editId = req.params.id;
+//PUT REQUEST//
+  app.put("/api/notes/:id", (req, res) => {
+    const editId = req.params.id;
 
-    	fs.readFile("./db/db.json", "utf8", (err, data) => {
-    		if (err) throw err;
+    fs.readFile("./db/db.json", "utf8", (err, data) => {
+      if (err) throw err;
 
-    	let notesArr = JSON.parse(data);
+      let notesArr = JSON.parse(data);
 
-    	let selectedNote = notesArr.find((note) => note.id === editId);
+      let selectedNote = notesArr.find((note) => note.id === editId);
 
-//CHECK//
-    if (selectedNote) {
-    	let updatedNote = {
-        title: req.body.title,
-        text: req.body.text, 
-        id: selectedNote.id,
+//CHECK NOTE//
+      if (selectedNote) {
+        let updatedNote = {
+          title: req.body.title,
+          text: req.body.text, 
+          id: selectedNote.id,
         };
+       
+        let targetIndex = notesArr.indexOf(selectedNote);
 
-//LOCATE INDEX//
-    let targetIndex = notesArr.indexOf(selectedNote);
+       
+        notesArr.splice(targetIndex, 1, updatedNote);
 
-//REPLACE W/ UPDATED NOTE//
-    notesArr.splice(targetIndex, 1, updatedNote);
-
-    	res.sendStatus(204);
-    	editNote(notesArr);
-    	res.json(notesArr);
-    		} else {
-    	res.sendStatus(404);
-    		}
-    	});
-  		});
-	};
+        res.sendStatus(204);
+        editNote(notesArr);
+        res.json(notesArr);
+      } else {
+        res.sendStatus(404);
+      }
+    });
+  });
+};

@@ -9,26 +9,21 @@ body {
   display: none;
 }
 
-
 .icons {
   cursor: pointer;
   color: whitesmoke;
 }
 
-.icons:hover {
-  font-size: 150%;
+.icons #save:hover {
+  font-size: 200%;
   transition: all 0.2s ease-in-out;
   color: grey;
 }
 
-.fa-trash-can-arrow-up {
-  color: rgb(2, 2, 238);
-}
-
-.fa-trash-can-arrow-up:hover {
-  color: rgb(204, 20, 20);
+.icons #new:hover {
+  font-size: 200%;
   transition: all 0.2s ease-in-out;
-  border: solid 1px black;
+  color: black;
 }
 
 .note-textarea,
@@ -77,17 +72,25 @@ body {
 
 .list-item-title {
   display: inline-block;
-  width: 90%;
+  width: 75%;
 }
 
 .list-container i {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: rgb(204, 20, 20);
+  padding-top: 1.5%;
+}
+
+.list-container i:hover {
+  color: rgb(204, 20, 20);
+  transition: all 0.2s ease-in-out;
+  font-size: 175%;
   cursor: pointer;
 }
 
 .list-container .list-group-item {
   border-left: none;
   border-right: none;
-  padding: 20px;
   cursor: pointer;
 }
