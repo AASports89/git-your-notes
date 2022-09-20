@@ -11,34 +11,35 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
 
-  <body style="background-image: linear-gradient(rgba(106, 106, 110, 0.974) 0%, rgb(225, 233, 242) 100%)">
-    <nav style="background-image: linear-gradient(rgba(3, 13, 198, 0.974) 0%, rgb(126, 184, 242) 100%)" class="navbar navbar-light bg-primary justify-content-center">
-      <a style="font-weight: bold; color: whitesmoke; font-size: 200%" class="navbar-brand" href="/"><img src="./images/title.png">
-        <img src="./images/th.jpg" style="border-radius: 0.25em; border: solid 1px black" width="50" height="50" alt="" loading="lazy">
+  <body style="background-image: linear-gradient(rgba(59, 59, 61, 0.974) 0%, rgb(225, 233, 242) 100%)">
+    <nav style="background-image: linear-gradient(rgba(3, 13, 198, 0.974) 0%, rgb(126, 184, 242) 100%); border-bottom: solid 2px black" class="navbar navbar-light bg-primary justify-content-center">
+      <a style="text-align:center" class="navbar-brand" href="/"><img style="width: 100%" src="./images/title.png">
+        <img src="./images/th.jpg" style="border-radius: 0.25em; border: solid 1px black" width="70" height="70" alt="" loading="lazy">
       </a>
     </nav>
-    <nav style="background-image: linear-gradient(rgba(3, 13, 198, 0.974) 0%, rgb(126, 184, 242) 100%); border: 1px solid black; border-radius: 0.5em" class="navbar navbar-light bg-primary">
-      <div class="icons">
-          <i id="save" class="fa-solid fa-cloud-arrow-down fa-xl"></i>
-          <i id="new" class="fa-regular fa-pen-to-square fa-xl"></i>
-      </div>
-    </nav>
+    <div class="icons">
+  <nav style="background-image: linear-gradient(rgba(59, 59, 61, 0.974) 0%, rgb(225, 233, 242) 100%); border-bottom: solid 2px black" class="navbar navbar-light bg-light">
+    <span style="height: 45px; width: 100%; background-image: linear-gradient(rgba(3, 13, 198, 0.974) 0%, rgb(126, 184, 242) 100%); border: solid 1px black; border-radius: 1em" class="navbar navbar-light bg-primary">
+     <i id="new" class="fa-regular fa-pen-to-square fa-xl"></i>
+        <i id="save" class="fa-solid fa-cloud-arrow-down fa-xl"></i></span>
+   </nav>
+  </div>
     <div class="container-fluid" style="background-image: linear-gradient(rgba(106, 106, 110, 0.974) 0%, rgb(225, 233, 242) 100%)">
       <div class="row">
         <div class="col-4 list-container">
-          <div style="border: solid 1px black; font-weight: bold; background-image: linear-gradient(rgba(3, 13, 198, 0.974) 0%, rgb(126, 184, 242) 100%)" class="card">
-            <ul style="font-size: 150%" class="list-group">
+          <div style="border-left: solid 2px black; border-right: solid 2px black; border-bottom: solid 2px black; font-weight: bold; background-image: linear-gradient(rgba(1, 10, 165, 0.974) 0%, rgb(126, 184, 242) 100%)" class="card">
+            <ul class="list-group">
             <span class="delete note"></ul></span>
           </div>
         </div>
         <div class="col-8">
-          <input style=" text-align: center; border-radius: 0.1em; border: solid 1px black"
+          <input style=" text-align: center; border-radius: 0.1em; border: dashed 1px black"
             class="note-title"
-            placeholder= "Enter Note Title Here"
+            placeholder= "Enter Note Title Here 📝"
             maxlength="28"
             type="text"
           />
-          <textarea style="font-size: 200%; border: dashed 1.25px black; border-radius: 0.5em" class="note-textarea" placeholder="Enter Note Text Here"></textarea>
+          <textarea style= "border: dashed 1.25px black; border-radius: 0.2em" class="note-textarea" placeholder="Enter Note Text Here 📝"></textarea>
         </div>
       </div>
     </div>
