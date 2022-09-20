@@ -222,10 +222,11 @@
 
     if (window.location.pathname === "/notes") {
       saveNoteBtn.addEventListener("click", handleNoteSave);
+      // saveNoteBtn.addEventListener("click", $("#date").text(moment.unix(response.dt).format("dddd, MM/DD/YYYY @ hh:mm:ss a")));
       newNoteBtn.addEventListener("click", handleNewNoteView);
       noteTitle.addEventListener("keyup", handleRenderSaveBtn);
       noteText.addEventListener("keyup", handleRenderSaveBtn);
-}
+    }
 
 //GETS INITIAL LIST//
-getAndRenderNotes();
+  getAndRenderNotes();

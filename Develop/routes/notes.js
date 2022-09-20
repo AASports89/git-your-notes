@@ -1,17 +1,17 @@
 //********************************************************** TAKE NOTES ********************************************************//
 
 //DEPENDENCIES --> PATH FOR HTML//
-const fs = require("fs");
-const uuid = require("../utils/uuid");
+  const fs = require("fs");
+  const uuid = require("../utils/uuid");
 //EDIT NOTES//
-const editNote = (updatedNotesArray) => {
-  fs.writeFile("./db/db.json", JSON.stringify(updatedNotesArray), (err) => {
+  const editNote = (updatedNotesArray) => {
+    fs.writeFile("./db/db.json", JSON.stringify(updatedNotesArray), (err) => {
     if (err) throw err;
-  });
-};
+    });
+  };
 
 //******************************** ROUTING ********************************//
-module.exports = (app) => {
+  module.exports = (app) => {
 //GET ROUTE//
   app.get("/api/notes", (req, res) => {
 //READ DB.JSON FILES//
@@ -19,8 +19,8 @@ module.exports = (app) => {
       if (err) throw err;
 //PARSE JSON STRING --> JSCRIPT//
       res.json(JSON.parse(data));
+      });
     });
-  });
 
 //POST REQUEST//
   app.post("/api/notes", (req, res) => {

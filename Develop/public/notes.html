@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Git Your Notes</title>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.1.3/flatly/bootstrap.min.css" /> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
 
   <body style="background-image: linear-gradient(rgba(59, 59, 61, 0.974) 0%, rgb(225, 233, 242) 100%)">
-    <nav style="background-image: linear-gradient(rgba(3, 13, 198, 0.974) 0%, rgb(126, 184, 242) 100%); border-bottom: solid 2px black" class="navbar navbar-light bg-primary justify-content-center">
+    <nav style="background-image: linear-gradient(rgba(2, 10, 163, 0.974) 0%, rgb(126, 184, 242) 100%); border-bottom: solid 2px black" class="navbar navbar-light bg-primary justify-content-center">
       <a style="text-align:center" class="navbar-brand" href="/"><img style="width: 100%" src="./images/title.png">
         <img src="./images/th.jpg" style="border-radius: 0.25em; border: solid 1px black" width="70" height="70" alt="" loading="lazy">
       </a>
     </nav>
     <div class="icons">
   <nav style="background-image: linear-gradient(rgba(59, 59, 61, 0.974) 0%, rgb(225, 233, 242) 100%); border-bottom: solid 2px black" class="navbar navbar-light bg-light">
-    <span style="height: 45px; width: 100%; background-image: linear-gradient(rgba(3, 13, 198, 0.974) 0%, rgb(126, 184, 242) 100%); border: solid 1px black; border-radius: 1em" class="navbar navbar-light bg-primary">
+    <span style="height: 45px; width: 100%; background-image: linear-gradient(rgba(3, 13, 198, 0.974) 0%, rgb(126, 184, 242) 100%); border: solid 2px black; border-radius: 1em" class="navbar navbar-light bg-primary">
      <i id="new" class="fa-regular fa-pen-to-square fa-xl"></i>
         <i id="save" class="fa-solid fa-cloud-arrow-down fa-xl"></i></span>
    </nav>
@@ -27,19 +27,20 @@
     <div class="container-fluid" style="background-image: linear-gradient(rgba(106, 106, 110, 0.974) 0%, rgb(225, 233, 242) 100%)">
       <div class="row">
         <div class="col-4 list-container">
-          <div style="border-left: solid 2px black; border-right: solid 2px black; border-bottom: solid 2px black; font-weight: bold; background-image: linear-gradient(rgba(1, 10, 165, 0.974) 0%, rgb(126, 184, 242) 100%)" class="card">
+          <div style="border-left: solid 2px black; border-right: solid 2px black; border-bottom: solid 2px black; font-weight: bold; background-image: linear-gradient(rgba(1, 7, 136, 0.974) 0%, rgb(142, 192, 243) 100%)" class="card">
             <ul class="list-group">
+              <!-- <h5 style="text-align: center; padding-bottom: 1%" id="date"></h5> -->
             <span class="delete note"></ul></span>
           </div>
         </div>
         <div class="col-8">
-          <input style=" text-align: center; border-radius: 0.1em; border: dashed 1px black"
+          <input style=" text-align: center; border-left: dashed 2px black; border-right: dashed 2px black; border-radius: 0.1em; border-top: dashed 2px black"
             class="note-title"
             placeholder= "Enter Note Title Here 📝"
             maxlength="28"
             type="text"
           />
-          <textarea style= "border: dashed 1.25px black; border-radius: 0.2em" class="note-textarea" placeholder="Enter Note Text Here 📝"></textarea>
+          <textarea style= "border: dashed 2px black; border-radius: 0.2em" class="note-textarea" placeholder="Enter Note Text Here 📝"></textarea>
         </div>
       </div>
     </div>
