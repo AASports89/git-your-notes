@@ -155,10 +155,10 @@
 
 //HIDE SAVE BUTTON UNLESS NEW NOTE ENTERED (TITLE+BODY)//
   const handleRenderSaveBtn = () => {
-    if (noteTitle.value.trim() || noteText.value.trim()) {
-      show(saveNoteBtn);
-      } else {
+    if (!noteTitle.value.trim() || !noteText.value.trim()) {
       hide(saveNoteBtn);
+      } else {
+      show(saveNoteBtn);
     }
   };
 
