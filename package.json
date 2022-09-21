@@ -6,20 +6,16 @@
     "express": "^4.18.1"
   },
   "description": "A note taking application using Express.js & JSON files to store and retrieve a user's notes.",
-  "main": "server.js",
-  "scripts": {
-    "index.js": "index.js",
-    "notes.js": "notes.js",
-    "utils": "uuid.js"
-  },
+  "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AASports89/git-your-notes.git"
+    "url": "https://github.com/AASports89/git-your-notes.git"
   },
   "keywords": [],
   "author": "AASports89",
   "license": "ISC",
   "dependencies": {
+    "cool-ascii-faces": "^1.3.4",
     "express": "^4.18.1",
     "node": "^16.17.0",
     "uuid": "^9.0.0"

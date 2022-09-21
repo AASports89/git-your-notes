@@ -2,11 +2,11 @@
 
 //DEPENDENCIES --> PATH FOR HTML//
   const fs = require("fs");
-  const uuid = require("../utils/uuid");
+  const uuid = require("../public/assets/js/utils/uuid");
 
 //EDIT NOTES//
   const editNote = (updatedNotesArray) => {
-    fs.writeFile("./db/db.json", JSON.stringify(updatedNotesArray), (err) => {
+    fs.writeFile("../db/db.json", JSON.stringify(updatedNotesArray), (err) => {
     if (err) throw err;
     });
   };
@@ -17,7 +17,7 @@
 //GET ROUTE//
   app.get("/api/notes", (req, res) => {
 //READ DB.JSON FILES//
-    fs.readFile("./db/db.json", "utf8", (err, data) => {
+    fs.readFile("../db/db.json", "utf8", (err, data) => {
       if (err) throw err;
 //PARSE JSON STRING --> JSCRIPT//
       res.json(JSON.parse(data));
@@ -28,7 +28,7 @@
   app.post("/api/notes", (req, res) => {
 //NEW NOTE --> RETURNS//
     const newNote = req.body;
-    fs.readFile("./db/db.json", "utf8", (err, data) => {
+    fs.readFile("../db/db.json", "utf8", (err, data) => {
       if (err) throw err;
 //PARSE JSON STRING --> JSCRIPT//
       const notesArr = JSON.parse(data);
@@ -50,7 +50,7 @@
 //DELETE REQUEST//
   app.delete("/api/notes/:id", (req, res) => {
     const deleteId = req.params.id;
-    fs.readFile("./db/db.json", "utf8", (err, data) => {
+    fs.readFile("../db/db.json", "utf8", (err, data) => {
       if (err) throw err;
       let notesArr = JSON.parse(data);
 //RANDOM GEN. ID CHECK//
@@ -68,7 +68,7 @@
 //PUT REQUEST//
   app.put("/api/notes/:id", (req, res) => {
     const editId = req.params.id;
-      fs.readFile("./db/db.json", "utf8", (err, data) => {
+      fs.readFile("../db/db.json", "utf8", (err, data) => {
         if (err) throw err;
           let notesArr = JSON.parse(data);
               let selectedNote = notesArr.find((note) => note.id === editId);

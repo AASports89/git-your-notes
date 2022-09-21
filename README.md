@@ -57,31 +57,31 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 
 ### **Homepage:**
 ---
-<img src="./Develop/public/images/hpg.png">
+<img src="./Develop/public/assets/images/hpg.png">
 
 ### **Main Page:**
 ---
-<img src="./Develop/public/images/mpg.png">
+<img src="./Develop/public/assets/images/mpg.png">
 
 ### **Save Notes:**
 ---
-<img src="./Develop/public/images/save.png">
+<img src="./Develop/public/assets/images/save.png">
 
 ### **Delete Notes:**
 ---
-<img src="./Develop/public/images/del.png">
+<img src="./Develop/public/assets/images/del.png">
 
 ### **Calendar:**
 ---
-<img src="./Develop/public/images/cal.png">
+<img src="./Develop/public/assets/images/cal.png">
 
 ### **Smart-Phone Capable:**
 ---
-<img src="./Develop/public/images/mb.png">
+<img src="./Develop/public/assets/images/mb.png">
 
 ### **Tablet Device Capable:**
 ---
-<img src="./Develop/public/images/td.png">
+<img src="./Develop/public/assets/images/td.png">
  
 ## Deployed Webpage URL
 ---
