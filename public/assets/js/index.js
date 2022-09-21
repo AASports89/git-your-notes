@@ -9,6 +9,7 @@
 //DATE & TIME//
   const now = new Date();
   const input = document.querySelector("input");
+  input.value = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().substring(0, 19);
 
   if (window.location.pathname === "/notes") {
     noteTitle = document.querySelector(".note-title");
@@ -16,7 +17,7 @@
     saveNoteBtn = document.querySelector("#save");
     newNoteBtn = document.querySelector("#new");
     noteList = document.querySelectorAll(".list-container .list-group");
-    noteDate = input.value = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().substring(0, 19);
+    noteDate = document.querySelector("#publishDate");
   }
 
 //SHOW ELEMENT//
