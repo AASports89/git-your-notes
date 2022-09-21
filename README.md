@@ -53,11 +53,35 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 
 ## Mock-Up
 ---
-> **Note:** The following images show the web application's appearance and functionality:
+> **Note:** The following images show **'Git Your Notes'** appearance and functionality:
 
-![Existing notes are listed in the left-hand column with empty fields on the right-hand side for the new note’s title and text.](./images/11-express-homework-demo-01.png)
+### **Homepage:**
+---
+<img src="./Develop/public/images/hpg.png">
 
-![Note titled “Balance accounts” reads, “Balance account books by end of day Monday,” with other notes listed on the left.](./images/11-express-homework-demo-02.png)
+### **Main Page:**
+---
+<img src="./Develop/public/images/mpg.png">
+
+### **Save Notes:**
+---
+<img src="./Develop/public/images/save.png">
+
+### **Delete Notes:**
+---
+<img src="./Develop/public/images/del.png">
+
+### **Calendar:**
+---
+<img src="./Develop/public/images/cal.png">
+
+### **Smart-Phone Capable:**
+---
+<img src="./Develop/public/images/mb.png">
+
+### **Tablet Device Capable:**
+---
+<img src="./Develop/public/images/td.png">
  
 ## Deployed Webpage URL
 ---
