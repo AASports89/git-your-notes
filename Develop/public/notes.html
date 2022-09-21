@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Git Your Notes</title>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
-    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/styles.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <title>Git Your Notes</title>
   </head>
 
   <body style="background-image: linear-gradient(rgba(59, 59, 61, 0.974) 0%, rgb(225, 233, 242) 100%)">
     <nav style="background-image: linear-gradient(rgba(2, 10, 163, 0.974) 0%, rgb(126, 184, 242) 100%); border-bottom: solid 2px black" class="navbar navbar-light bg-primary justify-content-center">
-      <a style="text-align:center" class="navbar-brand" href="/"><img style="width: 100%" src="./images/title.png">
-        <img src="./images/th.jpg" style="border-radius: 0.25em; border: solid 1px black" width="70" height="70" alt="" loading="lazy">
+      <a style="text-align:center" class="navbar-brand justify-content-center" href="/"><img id="title" src="./images/title.png">
+        <img id="logo" src="./images/th.jpg" style="border-radius: 0.25em; border: solid 1px black" alt="" loading="lazy">
       </a>
     </nav>
     <div class="icons">
@@ -28,22 +28,25 @@
       <div class="row">
         <div class="col-4 list-container">
           <div style="border-left: solid 2px black; border-right: solid 2px black; border-bottom: solid 2px black; font-weight: bold; background-image: linear-gradient(rgba(1, 7, 136, 0.974) 0%, rgb(142, 192, 243) 100%)" class="card">
-            <ul class="list-group">
-              <!-- <h5 style="text-align: center; padding-bottom: 1%" id="date"></h5> -->
+            <ul style="border-bottom: solid 1px black" class="list-group">
             <span class="delete note"></ul></span>
           </div>
         </div>
-        <div class="col-8">
-          <input style=" text-align: center; border-left: dashed 2px black; border-right: dashed 2px black; border-radius: 0.1em; border-top: dashed 2px black"
+        <div style="background-image: linear-gradient(rgba(106, 106, 110, 0.974) 0%, rgb(225, 233, 242) 100%)" class="card col-8 justify-content-center">
+          <input class="form-control form-control-md" type="datetime-local" id="publishDate" required 
+              style="height: 50px; color: black; font-size: 1.25rem; text-align: center; border: solid 1.5px black; border-radius: 0.25em"/>
+          <input style="text-align: center; border-left: dashed 2px black; border-right: dashed 2px black; border-radius: 0.1em; border-top: dashed 2px black"
             class="note-title"
             placeholder= "Enter Note Title Here 📝"
             maxlength="28"
-            type="text"
+            type="text datetime-local"
           />
           <textarea style= "border: dashed 2px black; border-radius: 0.2em" class="note-textarea" placeholder="Enter Note Text Here 📝"></textarea>
         </div>
       </div>
     </div>
+
+    
     <script src="./js/index.js"></script>
   </body>
 </html>

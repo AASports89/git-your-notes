@@ -5,6 +5,16 @@ body {
   padding: 0;
 }
 
+#logo {
+  width: 10%;
+  height: auto;
+}
+
+#title {
+  width: 65%;
+  height: auto;
+}
+
 .btn:hover {
   color: black;
   transition: all 0.2s ease-in-out;
@@ -66,7 +76,7 @@ body {
 
 .list-container {
   padding-left: 0;
-  font-size: 1rem;
+  font-size: 1.15rem;
 }
 
 .list-container .list-group,
@@ -86,13 +96,13 @@ body {
   font-size: 1.25rem;
   cursor: pointer;
   color: rgb(204, 20, 20);
-  padding-top: 1.5%;
+  padding-top: 1%;
 }
 
 .list-container i:hover {
   color: rgb(204, 20, 20);
   transition: all 0.2s ease-in-out;
-  font-size: 150%;
+  font-size: 165%;
   cursor: pointer;
 }
 

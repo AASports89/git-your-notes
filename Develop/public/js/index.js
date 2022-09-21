@@ -4,6 +4,11 @@
   let saveNoteBtn;
   let newNoteBtn;
   let noteList;
+  let noteDate;
+
+//DATE & TIME//
+  const now = new Date();
+  const input = document.querySelector("input");
 
   if (window.location.pathname === "/notes") {
     noteTitle = document.querySelector(".note-title");
@@ -11,6 +16,7 @@
     saveNoteBtn = document.querySelector("#save");
     newNoteBtn = document.querySelector("#new");
     noteList = document.querySelectorAll(".list-container .list-group");
+    noteDate = input.value = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().substring(0, 19);
   }
 
 //SHOW ELEMENT//
@@ -34,7 +40,7 @@
         "Content-Type": "application/json",
       },
     });
-
+    
 //POST NOTES TO DB.JSON FILES//
   const saveNote = (note) =>
     fetch("/api/notes", {
@@ -69,13 +75,15 @@
 
     if (activeNote.id) {
 //***********GREEN-OUT TO ENABLE EDITING STORED NOTES ***********//
-    // noteTitle.setAttribute("readonly", true); 
-    // noteText.setAttribute("readonly", true);
+    // noteTitle.setAttribute("readonly", false); 
+    // noteText.setAttribute("readonly", false);
     noteTitle.value = activeNote.title;
     noteText.value = activeNote.text;
+    noteDate.value = activeNote.date;
     } else {
     noteTitle.value = "";
     noteText.value = "";
+    noteDate.value = "";
     }
   };
 
@@ -85,12 +93,13 @@
     const newNote = {
     title: noteTitle.value,
     text: noteText.value,
+    date: noteDate.value,
     };
 
     console.log(
-      `New Note Added! Title: ${JSON.stringify(
-        newNote.title
-      )}, Text: ${JSON.stringify(newNote.text)} 🚀`
+      `SUCCESS! NEW NOTE ADDED! Title: ${JSON.stringify(
+        newNote.title 
+      )}, Text: ${JSON.stringify(newNote.text)} 🚀`,
     );
 //SAVE NEW NOTE//
     saveNote(newNote).then(() => {
@@ -112,6 +121,7 @@
     activeNote = {
       title: noteTitle.value.trim(),
       text: noteText.value.trim(),
+      date: noteDate.value.trim(),
     };
   }
 
@@ -129,7 +139,7 @@
 
   const note = event.target;
   const noteId = JSON.parse(note.parentElement.getAttribute("data-note")).id;
-  console.log(`Note Deleted! Note ID: ${noteId}`);
+  console.log(`WARNING! NOTE DELETED! ID: ${noteId} 🚀`);
 
   if (activeNote.id === noteId) {
     activeNote = {};
@@ -187,7 +197,7 @@
       const delBtnEl = document.createElement("i");
       delBtnEl.classList.add(
         "fa-solid",
-        "fa-trash-arrow-up",
+        "fa-ban",
         "float-right",
         "delete-note"
       );
@@ -201,7 +211,7 @@
 	  };
 
     if (jsonNotes.length === 0) {
-    noteListItems.push(createLi("No saved Notes", false));
+    noteListItems.push(createLi("NO SAVED NOTES!", false));
     }
 
     jsonNotes.forEach((note) => {
@@ -222,7 +232,6 @@
 
     if (window.location.pathname === "/notes") {
       saveNoteBtn.addEventListener("click", handleNoteSave);
-      // saveNoteBtn.addEventListener("click", $("#date").text(moment.unix(response.dt).format("dddd, MM/DD/YYYY @ hh:mm:ss a")));
       newNoteBtn.addEventListener("click", handleNewNoteView);
       noteTitle.addEventListener("keyup", handleRenderSaveBtn);
       noteText.addEventListener("keyup", handleRenderSaveBtn);
@@ -230,3 +239,4 @@
 
 //GETS INITIAL LIST//
   getAndRenderNotes();
+  

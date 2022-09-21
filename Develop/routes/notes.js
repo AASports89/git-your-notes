@@ -3,13 +3,15 @@
 //DEPENDENCIES --> PATH FOR HTML//
   const fs = require("fs");
   const uuid = require("../utils/uuid");
+
 //EDIT NOTES//
   const editNote = (updatedNotesArray) => {
     fs.writeFile("./db/db.json", JSON.stringify(updatedNotesArray), (err) => {
     if (err) throw err;
     });
   };
-
+  
+  
 //******************************** ROUTING ********************************//
   module.exports = (app) => {
 //GET ROUTE//
@@ -35,15 +37,16 @@
 //ADD NOTE --> EXISTING LIST//
       editNote(notesArr);
         console.log(
-        `Sucess! New Note Added Title: ${JSON.stringify(newNote.title)}, 
-        Text: ${JSON.stringify(newNote.text)}, 
-        ID: ${newNote.id} 🚀`
+        `SUCCESS! NEW NOTE ADDED!
+          Title: ${JSON.stringify(newNote.title)} 🚀, 
+          Text: ${JSON.stringify(newNote.text)} 🚀,
+          Date: ${JSON.stringify(newNote.date)} 🚀,
+          ID: ${newNote.id} 🚀`
         );
-
         res.send(notesArr);
         });
       });
-
+      
 //DELETE REQUEST//
   app.delete("/api/notes/:id", (req, res) => {
     const deleteId = req.params.id;
@@ -57,7 +60,7 @@
         }
       }
       editNote(notesArr);
-      console.log(`Warning! Note Deleted. Note ID: ${deleteId} 🚀`);
+      console.log(`WARNING! NOTE DELETED! ID: ${deleteId} 🚀`);
       res.send(notesArr);
     });
   });
@@ -74,7 +77,8 @@
   if (selectedNote) {
     let updatedNote = {
         title: req.body.title,
-        text: req.body.text, 
+        text: req.body.text,
+        date: req.body.date,
         id: selectedNote.id,
         };
         let targetIndex = notesArr.indexOf(selectedNote);

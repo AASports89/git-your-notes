@@ -16,8 +16,7 @@
     "type": "git",
     "url": "git+https://github.com/AASports89/git-your-notes.git"
   },
-  "keywords": [
-  ],
+  "keywords": [],
   "author": "AASports89",
   "license": "ISC",
   "dependencies": {
