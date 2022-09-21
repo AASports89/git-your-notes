@@ -1,7 +1,6 @@
 
 # **Git Your Notes** [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](#isc-license)
 ---
-
   
 ## Overview
 ---
@@ -57,35 +56,35 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 
 ### **Homepage:**
 ---
-<img src="./Develop/public/assets/images/hpg.png">
+<img src="./public/assets/images/hpg.png">
 
 ### **Main Page:**
 ---
-<img src="./Develop/public/assets/images/mpg.png">
+<img src="./public/assets/images/mpg.png">
 
 ### **Save Notes:**
 ---
-<img src="./Develop/public/assets/images/save.png">
+<img src="./public/assets/images/save.png">
 
 ### **Delete Notes:**
 ---
-<img src="./Develop/public/assets/images/del.png">
+<img src="./public/assets/images/del.png">
 
 ### **Calendar:**
 ---
-<img src="./Develop/public/assets/images/cal.png">
+<img src="./public/assets/images/cal.png">
 
 ### **Smart-Phone Capable:**
 ---
-<img src="./Develop/public/assets/images/mb.png">
+<img src="./public/assets/images/mb.png">
 
 ### **Tablet Device Capable:**
 ---
-<img src="./Develop/public/assets/images/td.png">
+<img src="./public/assets/images/td.png">
  
 ## Deployed Webpage URL
 ---
-> https://www.```.com
+> https://git-your-notes.herokuapp.com/
 
 ## GitHUB Repository
 ---
@@ -152,7 +151,7 @@ You are required to submit BOTH of the following for review:
 ## Contact Info
 ---
 > **Note:** Any Questions? 
-> * Please visit my deployed URL https://www.```.com
+> * Please visit my deployed application webpage  @https://git-your-notes.herokuapp.com/
 > * Additionally, you can view the source code for this project and others @https://github.com/AASports89/git-your-notes
 
 ## **ISC License**
