@@ -5,7 +5,9 @@
   
 ## Overview
 ---
-  **'Git Your Notes'** is a note taker application powered by ```Express.js``` and ```JSON``` files to store, retrieve and organize a user's notes. Additionally, ```http://localhost:3001/api/notes``` will display all storage activity linked to the ```JSON``` files.
+  **'Git Your Notes'** is a note taker application powered by ```Express.js``` and ```JSON``` files to store, retrieve and organize a user's notes. Additionally, ```http://localhost:3001/api/notes``` will be used to run app locally and to access the ```JSON``` files.
+
+  This application was designed to compartmentalize the note-taking process with a digital twist made possible by utilizing the dynamic ```JavaScript``` and  ```HTML``` languages. **'Git Your Notes'** allows a user to enter the title, text, and date/time associated with their corresponding note. All user inputted data is conveniently stored directly beside the note-taking canvas for easy access to edit and delete the selected notes. Overall, this application has been developed to create a user-friendly way to take, store, and edit general notes.
 
 
 ## Table of Contents
