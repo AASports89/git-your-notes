@@ -1,1 +1,1 @@
-[{"title":"Test Note","text":"This is the first note from the initial heroku app launch!","id":"7d89"},{"title":"Note","text":"new","id":"661f"},{"title":"No Date & Time","text":"Where's the date & time stamp??","id":"a3a5"},{"title":"Date & Time","text":"Date & Time","date":"2022-09-21T16:15:07","id":"d21c"}]
+[{"title":"First Note w/ Date & Time","text":"The first note with a date & time stamp!","date":"2022-09-21T16:22","id":"9f96"},{"title":"Notes","text":"New background image for notes!","date":"2022-09-21T18:05:20","id":"bf63"}]

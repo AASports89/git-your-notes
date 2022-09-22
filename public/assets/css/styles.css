@@ -15,9 +15,17 @@ body {
   height: auto;
 }
 
+.btn {
+  background-image: linear-gradient(rgba(2, 10, 163, 0.974) 0%, rgb(126, 184, 242) 100%);
+  width: 50%;
+}
+
 .btn:hover {
   color: black;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-image: linear-gradient(rgba(59, 59, 61, 0.974) 0%, rgb(225, 233, 242) 100%);
+  width: 40%;
+  font-size: 100%;
 }
 
 .save-note {
@@ -39,6 +47,20 @@ body {
   font-size: 200%;
   transition: all 0.2s ease-in-out;
   color: black;
+}
+
+#publishDate {
+  color: black;
+  font-size: 1.1rem;
+  background-color: transparent;
+}
+
+#publishDate:hover {
+  transition: all 0.2s ease-in-out;
+  font-size: 1.35rem;
+  background-color: rgb(163, 204, 239);
+  font-weight: bold;
+  color:rgb(119, 122, 124);
 }
 
 .note-textarea,
@@ -77,6 +99,12 @@ body {
 .list-container {
   padding-left: 0;
   font-size: 1.15rem;
+  font-weight: bold;
+}
+
+.list-group-item:hover {
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out;
 }
 
 .list-container .list-group,

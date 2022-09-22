@@ -19,7 +19,8 @@
     </nav>
 
     <div class="icons">
-      <nav style="background-image: linear-gradient(rgba(59, 59, 61, 0.974) 0%, rgb(225, 233, 242) 100%); border-bottom: solid 2px black" class="navbar navbar-light bg-light">
+      <nav style="background-image: linear-gradient(rgba(59, 59, 61, 0.974) 0%, rgb(225, 233, 242) 100%); border-bottom: solid 2px black" class="navbar navbar-light bg-light justify-content-center">
+        <img src="./assets/images/express.png" width="250" height="65" alt="" loading="lazy">
         <span style="height: 45px; width: 100%; background-image: linear-gradient(rgba(3, 13, 198, 0.974) 0%, rgb(126, 184, 242) 100%); border: solid 2px black; border-radius: 1em" class="navbar navbar-light bg-primary">
           <i id="new" class="fa-regular fa-pen-to-square fa-xl"></i>
           <i id="save" class="fa-solid fa-cloud-arrow-down fa-xl"></i></span>
@@ -37,12 +38,15 @@
                 </div>
               </div>
 
-            <div style="background-image: linear-gradient(rgba(106, 106, 110, 0.974) 0%, rgb(225, 233, 242) 100%)" class="card col-8 justify-content-center">
+            <div style="background-image: linear-gradient(rgba(106, 106, 110, 0.974) 0%, rgb(225, 233, 242) 100%)" class="card col-8">
+              <div class="card col-8-bg card-img-overlay bg-white">
                 <input class="form-control form-control-md" type="datetime-local" id="publishDate" required 
-                  style="height: 50px; color: black; font-size: 1.25rem; text-align: center; border: solid 2px black; border-radius: 0.25em"/>
-                <input style="text-align: center; border-left: dashed 2px black; border-right: dashed 2px black; border-radius: 0.1em; border-top: dashed 2px black"
+                  style="border: solid 1.5px black; border-radius: 0.25em; height: 50px; text-align: center"/>
+                <input style="background-color: transparent; text-align: center; border: solid 1.5px black; border-radius: 0.25em"
                   class="note-title" placeholder= "Enter Note Title Here 📝" maxlength="28" type="text"/>
-                <textarea style="border: dashed 2px black; border-radius: 0.2em" class="note-textarea" placeholder="Enter Note Text Here 📝"></textarea>
+                <textarea class="note-textarea" style="border-bottom: dashed 1.5px black; border-left: dashed 1.5px black; border-right: dashed 1.5px black; background-color: transparent" placeholder="Enter Note Text Here 📝"></textarea>
+              </div>
+              </div>
             </div>
         </div>
       </div>
