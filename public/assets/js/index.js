@@ -100,10 +100,11 @@
     console.log(
       `SUCCESS! NEW NOTE ADDED! Title: ${JSON.stringify(
         newNote.title 
-      )}, Text: ${JSON.stringify(newNote.text)} 🚀`,
+      )}, Text: ${JSON.stringify(newNote.text)} ♻`,
     );
 //SAVE NEW NOTE//
-    saveNote(newNote).then(() => {
+    saveNote(newNote).then(() => alert(`SUCCESS! NEW NOTE '${newNote.title}' ADDED! ♻`))
+    .then(() => {
     getAndRenderNotes();
     renderActiveNote();
     });
@@ -127,7 +128,7 @@
   }
 
     editNote(noteId).then(() => {
-    saveNote(activeNote);
+    saveNote(activeNote)
     getAndRenderNotes();
     renderActiveNote();
     });
@@ -140,13 +141,14 @@
 
   const note = event.target;
   const noteId = JSON.parse(note.parentElement.getAttribute("data-note")).id;
-  console.log(`WARNING! NOTE DELETED! ID: ${noteId} 🚀`);
+  console.log(`WARNING! NOTE DELETED! ID: ${noteId} ⛔`);
 
   if (activeNote.id === noteId) {
     activeNote = {};
   }
 
-    deleteNote(noteId).then(() => {
+      deleteNote(noteId).then(() => alert(`WARNING! NOTE DELETED! ⛔`))
+      .then(() => {
       getAndRenderNotes();
       renderActiveNote();
     });
