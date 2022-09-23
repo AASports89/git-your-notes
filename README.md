@@ -51,7 +51,10 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 
 ## Mock-Up
 ---
-> **Note:** The following images show **'Git Your Notes'** appearance and functionality:
+> **Note:** The following GIF & images show **'Git Your Notes'** appearance and functionality:
+
+### **Overall App:** (*GIF*)
+<img src="./public/assets/images/note-taker.gif">
 
 ### **Homepage:**
 ---
@@ -59,19 +62,19 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 
 ### **Main Page:**
 ---
-<img src="./public/assets/images/main.png">
+<img src="./public/assets/images/mainpg.png">
 
 ### **Save Notes:**
 ---
-<img src="./public/assets/images/save.png">
+<img src="./public/assets/images/saved.png">
 
 ### **Delete Notes:**
 ---
-<img src="./public/assets/images/delete.png">
+<img src="./public/assets/images/deleted.png">
 
 ### **Calendar:**
 ---
-<img src="./public/assets/images/cal.png">
+<img src="./public/assets/images/caldr.png">
 
 ### **Smart-Phone Capable:**
 ---
