@@ -31,6 +31,8 @@ SO THAT I can organize my thoughts and keep track of tasks I need to complete
 
 ## Acceptance Criteria
 ---
+> **Note:** The following criteria is used to determine if the standards set for **'Git Your Notes'** have been met:
+
 ```
 GIVEN a note-taking application
 WHEN I open the Note Taker
