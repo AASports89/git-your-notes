@@ -48,9 +48,6 @@ THEN that note appears in the right-hand column
 WHEN I click on the Write icon in the navigation at the top of the page
 THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column
 ```
-## Usage
----
-**'Git Your Notes'** is an application used to store and retrieve a user's notes, via Express.js powering the back-end along with JSON files being used as a storage point.
 
 ## Mock-Up
 ---
@@ -78,11 +75,11 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 
 ### **Smart-Phone Capable:**
 ---
-<img src="./public/assets/images/mb.png">
+<img src="./public/assets/images/smph.png">
 
 ### **Tablet Device Capable:**
 ---
-<img src="./public/assets/images/td.png">
+<img src="./public/assets/images/tbdv.png">
  
 ## Deployed Webpage URL
 ---
@@ -95,7 +92,6 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 ## Evaluation Guideline
 ---
 > **Note**: The following evaluation guideline is used to determine if **'Git Your Notes'** meets the requirements for a minimum viable product:
-
 
 ### Technical Acceptance Criteria: 40%
 
