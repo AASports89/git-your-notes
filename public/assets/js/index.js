@@ -75,9 +75,9 @@
     hide(saveNoteBtn);
 
     if (activeNote.id) {
-//***********GREEN-OUT TO ENABLE EDITING STORED NOTES ***********//
-    noteTitle.setAttribute("readonly", true); 
-    // noteText.setAttribute("readonly", false);
+//***************************GREEN-OUT TO ENABLE EDITING STORED NOTES ******************************//
+    // [noteTitle.setAttribute("readonly", true);]  --> CANCEL GREEN-OUT TO DISABLE TITLE EDITING//
+    // [noteText.setAttribute("readonly", false);]  --> CANCEL GREEN-OUT TO DISABLE BODY TEXT EDITING//
     noteTitle.value = activeNote.title;
     noteText.value = activeNote.text;
     noteDate.value = activeNote.date;
