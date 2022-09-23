@@ -56,11 +56,11 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 
 ### **Homepage:**
 ---
-<img src="./public/assets/images/hpg.png">
+<img src="./public/assets/images/home.png">
 
 ### **Main Page:**
 ---
-<img src="./public/assets/images/mpg.png">
+<img src="./public/assets/images/main.png">
 
 ### **Save Notes:**
 ---
@@ -68,7 +68,7 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 
 ### **Delete Notes:**
 ---
-<img src="./public/assets/images/del.png">
+<img src="./public/assets/images/delete.png">
 
 ### **Calendar:**
 ---
