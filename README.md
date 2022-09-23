@@ -76,13 +76,9 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 ---
 <img src="./public/assets/images/caldr.png">
 
-### **Smart-Phone Capable:**
+### **Mobile Device Capable:**
 ---
-<img src="./public/assets/images/smph.png">
-
-### **Tablet Device Capable:**
----
-<img src="./public/assets/images/tbdv.png">
+<img src="./public/assets/images/mobile.jpg">
  
 ## Deployed Webpage URL
 ---
