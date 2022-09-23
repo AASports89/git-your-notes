@@ -37,11 +37,11 @@
 //ADD NOTE --> EXISTING LIST//
       editNote(notesArr);
         console.log(
-        `SUCCESS! NEW NOTE ADDED!
-          Title: ${JSON.stringify(newNote.title)} 🚀, 
-          Text: ${JSON.stringify(newNote.text)} 🚀,
-          Date: ${JSON.stringify(newNote.date)} 🚀,
-          ID: ${newNote.id} 🚀`
+        `SUCCESS ✅❕ NEW NOTE ADDED ✍❕
+          Title: ${JSON.stringify(newNote.title)} ✏, 
+          Text: ${JSON.stringify(newNote.text)} ✏,
+          Date: ${JSON.stringify(newNote.date)} ⌚,
+          ID: ${newNote.id} 🆔`
         );
         res.send(notesArr);
         });
@@ -60,7 +60,7 @@
         }
       }
       editNote(notesArr);
-      console.log(`WARNING! NOTE DELETED! ID: ${deleteId} 🚀`);
+      console.log(`WARNING❗ NOTE DELETED❗ ID: ${deleteId} ❌`);
       res.send(notesArr);
     });
   });

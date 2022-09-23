@@ -98,12 +98,12 @@
     };
 
     console.log(
-      `SUCCESS! NEW NOTE ADDED! Title: ${JSON.stringify(
+      `SUCCESS❕ ✅ NEW NOTE ADDED❕ ✍ Title: ${JSON.stringify(
         newNote.title 
       )}, Text: ${JSON.stringify(newNote.text)}`,
     );
 //SAVE NEW NOTE//
-    saveNote(newNote).then(() => alert(`SUCCESS❕✅ NEW NOTE '${newNote.title}' ADDED❕✅`))
+    saveNote(newNote).then(() => alert(`SUCCESS❕✅ NEW NOTE '${newNote.title}' ADDED❕✍`))
     .then(() => {
     getAndRenderNotes();
     renderActiveNote();
@@ -126,10 +126,8 @@
       date: noteDate.value.trim(),
     };
   }
-
-    editNote(noteId).then(() => {saveNote(activeNote)
-    });
-    deleteNote(noteId).then(() => alert(`WARNING❗⛔ NOTE EDITED❗✍`))
+//EDITS SELECTED NOTE --> SAVES EDITED NOTE//
+    editNote(noteId).then(() => saveNote(activeNote))
     .then(() => {
     getAndRenderNotes();
     renderActiveNote();
